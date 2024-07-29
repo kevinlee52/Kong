@@ -25,6 +25,7 @@ jobs:
       # and run all Cypress tests
       - name: Cypress run
         uses: cypress-io/github-action@v6
-        # with:
-        #   build: npm run build
-        #   start: npm start
+        with:
+          build: docker-compose up -d
+          # build: npm run build
+          # start: npm start
