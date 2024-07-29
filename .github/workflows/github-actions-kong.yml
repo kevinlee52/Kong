@@ -1,5 +1,5 @@
-name: GitHub Actions Demo
-run-name: ${{ github.actor }} is testing out GitHub Actions 🚀
+name: Kong Gateway Services CI
+run-name: ${{ github.actor }} is testing out Kong Gateway Services CI 🚀
 on: [push]
 jobs:
   Verify-Basic-Info:
