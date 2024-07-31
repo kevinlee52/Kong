@@ -17,9 +17,10 @@ This is a quick demo project for implementing Cypress + Javascript testcases to 
 2. Make sure docker has been installed, and service is up and running on your local.
 3. Clone the repository: "git clone https://github.com/kevinlee52/Kong.git"
 4. Navigate to the project directory: "cd Kong"
-5. Execute "docker-compose up -d"
-6. Navigate to http://localhost:8002/ in your browser. Make sure you can access the Kong Gateway UI (Kong Manager)
-7. Execute "npx cypress open" if you want test with Cypress UI, or Execute "npx cypress run" if you only need a test result in your terminal.
+5. Execute "npm install"
+6. Execute "docker-compose up -d"
+7. Navigate to http://localhost:8002/ in your browser. Make sure you can access the Kong Gateway UI (Kong Manager)
+8. Execute "npx cypress open" if you want test with Cypress UI, or Execute "npx cypress run" if you only need a test result in your terminal.
 
 ## 🤝 CI/CD
 
