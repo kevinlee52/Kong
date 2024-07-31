@@ -29,9 +29,10 @@ https://github.com/kevinlee52/Kong/actions
 
 Design considerations:
 
-    Setup:
+    Setup & Teardown:
         1. "docker-compose.yml" file has been added under root folder for quick setup.
         2. "docker-compose up -d" execution has been integrated in github actions for quick CI.
+        3. "docker-compose down" execution has been integrated in github actions after testcases finished.
 
     Testcases:
         1. To keep environment clean and simple, I added "delete route" and "delete service" testcases.
