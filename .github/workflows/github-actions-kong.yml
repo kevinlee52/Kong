@@ -29,9 +29,9 @@ jobs:
           build: docker-compose up -d
           # build: npm run build
           # start: npm start
-      - name: Cypress teardown
-        uses: cypress-io/github-action@v6
-        with:
-          # Disable running of tests within install job
-          runTests: false
-          build: docker-compose down
+      # - name: Cypress teardown
+      #   uses: cypress-io/github-action@v6
+      #   with:
+      #     # Disable running of tests within install job
+      #     runTests: false
+      #     build: docker-compose down
