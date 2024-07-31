@@ -23,12 +23,15 @@ jobs:
         uses: actions/checkout@v4
       # Install npm dependencies, cache them correctly
       # and run all Cypress tests
-      - name: Cypress run
+      - name: Cypress setup
         uses: cypress-io/github-action@v6
         with:
+          runTests: false
           build: docker-compose up -d
           # build: npm run build
           # start: npm start
+      - name: Cypress run
+        uses: cypress-io/github-action@v6
       # - name: Cypress teardown
       #   uses: cypress-io/github-action@v6
       #   with:
