@@ -7,7 +7,7 @@ This is a quick demo project for implementing Cypress + Javascript testcases to 
 📝 Testcases:
 
 1. Create a new service.
-2. Create a new route associated to that service.
+2. Create a new route associated with that service.
 3. Delete created route.
 4. Delete created service to recover environment.
 
