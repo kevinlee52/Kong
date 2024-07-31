@@ -48,6 +48,11 @@ describe("gateway service actions", () => {
     ).click();
     cy.get('[data-testid="confirmation-input"]').type("mock_route");
     cy.get('[data-testid="modal-action-button"]').click();
+    cy.get(".sidebar-menu-toggle").click();
+    cy.get('[data-testid="sidebar-item-routes"]').click();
+    cy.get(".kong-ui-entities-routes-list").should(($mr) => {
+      expect($mr.first()).to.not.contain("mock_route");
+    });
   });
 
   it("delete the mock service", () => {
@@ -60,5 +65,10 @@ describe("gateway service actions", () => {
     ).click();
     cy.get('[data-testid="confirmation-input"]').type("mock_service");
     cy.get('[data-testid="modal-action-button"]').click();
+    cy.get(".sidebar-menu-toggle").click();
+    cy.get('[data-testid="sidebar-item-gateway-services"]').click();
+    cy.get(".kong-ui-entities-gateway-services-list").should(($ms) => {
+      expect($ms.first()).to.not.contain("mock_service");
+    });
   });
 });
