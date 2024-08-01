@@ -40,6 +40,9 @@ https://github.com/kevinlee52/Kong/actions
         2. This can also make github action CI can run in a stable conditions, we don't need to write code to generate services with random names(service with same name will fail the testcase).
         3. For testcase coverage improvement, we can add more complicated input or unexpected input for testcase robustness.
 
+    Todo:
+        1. For test report, we can implement with Mochawecome or Allure
+
 ### Assumptions:
 
         1. Service list is empty and no existing service named "mock_service".
