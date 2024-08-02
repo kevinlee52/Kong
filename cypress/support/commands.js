@@ -47,12 +47,6 @@ Cypress.Commands.add("addNewService", (name, url) => {
   cy.get('[data-testid="form-submit"]').click();
 });
 
-Cypress.Commands.add("validateServiceCreation", (serviceName) => {
-  cy.get(`tbody > [data-testid=${serviceName}]`).should(($ms) => {
-    expect($ms.first()).to.contain(serviceName);
-  });
-});
-
 Cypress.Commands.add(
   "addRouteToService",
   (serviceName, routeName, routePath) => {
@@ -64,10 +58,33 @@ Cypress.Commands.add(
   }
 );
 
+Cypress.Commands.add("validateServiceCreation", (serviceName) => {
+  cy.get(`tbody > [data-testid=${serviceName}]`).should(($ms) => {
+    expect($ms.first()).to.contain(serviceName);
+  });
+});
+
 Cypress.Commands.add("validateRouteCreation", (routeName) => {
   cy.get(`tbody > [data-testid=${routeName}]`).should(($mr) => {
     expect($mr.first()).to.contain(routeName);
   });
+});
+
+Cypress.Commands.add("validateRouteDeletion", (routeName) => {
+  cy.get(".kong-ui-entities-routes-list").should(($mr) => {
+    expect($mr.first()).to.not.contain(routeName);
+  });
+});
+
+Cypress.Commands.add("validateServiceDeletion", (serviceName) => {
+  cy.get(".kong-ui-entities-gateway-services-list").should(($ms) => {
+    expect($ms.first()).to.not.contain(serviceName);
+  });
+});
+
+Cypress.Commands.add("confirmInput", (input) => {
+  cy.get('[data-testid="confirmation-input"]').type(input);
+  cy.get('[data-testid="modal-action-button"]').click();
 });
 
 Cypress.Commands.add("deleteRoute", (routeName) => {
@@ -76,8 +93,7 @@ Cypress.Commands.add("deleteRoute", (routeName) => {
   cy.get(
     '.danger > [data-testid="dropdown-item-trigger"] > .dropdown-item-trigger-label'
   ).click();
-  cy.get('[data-testid="confirmation-input"]').type(routeName);
-  cy.get('[data-testid="modal-action-button"]').click();
+  cy.confirmInput(routeName);
 });
 
 Cypress.Commands.add("deleteService", (serviceName) => {
@@ -85,6 +101,5 @@ Cypress.Commands.add("deleteService", (serviceName) => {
   cy.get(
     'div[data-testid="mock_service"] > .k-dropdown > [data-testid="k-dropdown-popover"]   .k-popover-content > ul > li[data-testid="action-entity-delete"]'
   ).click();
-  cy.get('[data-testid="confirmation-input"]').type(serviceName);
-  cy.get('[data-testid="modal-action-button"]').click();
+  cy.confirmInput(serviceName);
 });
