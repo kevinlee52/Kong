@@ -24,10 +24,10 @@
 // -- This will overwrite an existing command --
 // Cypress.Commands.overwrite('visit', (originalFn, url, options) => { ... })
 
-Cypress.Commands.add("navToDefaultWorkspace", () => {
-  cy.visit("http://localhost:8002/");
-  cy.get(".workspace-name").contains("default").click();
-});
+// Cypress.Commands.add("navToDefaultWorkspace", () => {
+//   cy.visit("http://localhost:8002/");
+//   cy.get(".workspace-name").contains("default").click();
+// });
 
 Cypress.Commands.add("navToServicesPage", () => {
   cy.get(".sidebar-menu-toggle").click();
