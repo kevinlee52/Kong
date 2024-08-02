@@ -1,6 +1,9 @@
+import defaultWorkspacePage from "./pages/defaultWorkspacePage";
+
 describe("gateway service actions", () => {
   beforeEach(() => {
-    cy.navToDefaultWorkspace();
+    const instance = new defaultWorkspacePage();
+    instance.visitPage();
   });
 
   it("create a mock service", () => {
